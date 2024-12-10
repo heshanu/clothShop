@@ -8,6 +8,9 @@ import { HeaderComponent } from './shared/header/header.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { NavcontentComponent } from './shared/navbar/navcontent/navcontent.component';
 import { MatModule } from './shared/matModule';
+import { HomeModule } from './module/home/home.module';
+import { NotfoundComponent } from './shared/notfound/notfound.component';
+import { TestComponent } from './shared/test/test.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { MatModule } from './shared/matModule';
     FooterComponent,
     HeaderComponent,
     NavbarComponent,
-    NavcontentComponent
+    NavcontentComponent,
+    NotfoundComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatModule
+    MatModule,
+    HomeModule
   ],
   providers: [
     provideClientHydration()

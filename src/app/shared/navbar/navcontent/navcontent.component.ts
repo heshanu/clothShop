@@ -7,6 +7,7 @@ import { navigation } from './nav-content';
   styleUrl: './navcontent.component.css'
 })
 export class NavcontentComponent {
+  
   category:any;
   @Input() selectedSection:any;
 

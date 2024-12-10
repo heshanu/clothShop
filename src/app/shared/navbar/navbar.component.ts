@@ -19,9 +19,8 @@ export class NavbarComponent {
  }
 
 
-  navigateTo(path:any){
-
-  }
+  navigateTo(path:any){}
+  
 
   @HostListener('document:click', [`$event`])
   onDocumentClick(event:MouseEvent){
