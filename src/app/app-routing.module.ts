@@ -6,6 +6,7 @@ import { HomeComponent } from './compoent/home/home.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
+  {path:'admin',loadChildren: () => import('../app/module/admin/admin.module').then(m => m.AdminModule)},
   {path:'test',component:TestComponent},
   {path:'**',component:NotfoundComponent}
 ];
