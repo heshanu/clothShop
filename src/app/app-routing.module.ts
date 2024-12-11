@@ -4,8 +4,8 @@ import { NotfoundComponent } from './shared/notfound/notfound.component';
 import { TestComponent } from './shared/test/test.component';
 
 const routes: Routes = [
-  {path:'home',loadChildren:()=>import("./module/home/home.module").then(m=>m.HomeModule)},
-  {path:'',component:TestComponent},
+  {path:'',loadChildren:()=>import("./module/home/home.module").then(m=>m.HomeModule)},
+  {path:'test',component:TestComponent},
   {path:'**',component:NotfoundComponent}
 ];
 
