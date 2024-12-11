@@ -1,0 +1,7 @@
+<div class="carousel" [ngClass]="{'autoplay': autoplay}">
+    <div class="carousel-inner" [style.transform]="'translateX(' + (-100 * currentIndex) + '%)'">
+      <div *ngFor="let slide of slides; let i = index" class="carousel-slide" [ngClass]="{'active': i === currentIndex}">
+        <img [src]="slide.image" [alt]="slide" />
+      </div>
+    </div>
+  </div>

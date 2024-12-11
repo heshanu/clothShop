@@ -1,0 +1,9 @@
+<div class="carousel" [ngClass]="{'autoplay': autoplay}">
+  <div class="carousel-inner" [style.transform]="'translateX(' + (-100 * currentIndex) + '%)'">
+    <div *ngFor="let slide of slides; let i = index" class="carousel-slide" [ngClass]="{'active': i === currentIndex}">
+      <img [src]="slide.image" [alt]="slide" />
+    </div>
+  </div>
+  <button (click)="prevSlide()" class="carousel-control prev"><span nz-icon nzType="left" nzTheme="outline"></span></button>
+  <button (click)="nextSlide()" class="carousel-control next"><span nz-icon nzType="right" nzTheme="outline"></span></button>
+</div>

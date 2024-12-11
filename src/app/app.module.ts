@@ -8,9 +8,13 @@ import { HeaderComponent } from './shared/header/header.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { NavcontentComponent } from './shared/navbar/navcontent/navcontent.component';
 import { MatModule } from './shared/matModule';
-import { HomeModule } from './module/home/home.module';
 import { NotfoundComponent } from './shared/notfound/notfound.component';
 import { TestComponent } from './shared/test/test.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HomeComponent } from './compoent/home/home.component';
+import { CarouslComponent } from './shared/carousl/carousl.component';
+import { NgZeroModule } from './shared/ngZeroModule';
+import { ProductCaroselComponent } from './shared/product-carosel/product-carosel.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +25,16 @@ import { TestComponent } from './shared/test/test.component';
     NavcontentComponent,
     NotfoundComponent,
     TestComponent,
+    HomeComponent,
+    CarouslComponent,
+    ProductCaroselComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatModule,
-    HomeModule
+    SlickCarouselModule,
+    NgZeroModule 
   ],
   providers: [
     provideClientHydration()
