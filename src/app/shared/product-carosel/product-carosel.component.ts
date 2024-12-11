@@ -7,27 +7,23 @@ import { Subscription } from 'rxjs';
   templateUrl: './product-carosel.component.html',
   styleUrl: './product-carosel.component.css'
 })
+
 export class ProductCaroselComponent implements OnInit,OnDestroy{
 
   ProductData!: any[];
 
   private subscription!: Subscription;
 
-  @Input() autoplay: boolean = false;
-
   slides: any[] = [];
-  
-  currentIndex: number = 0;
+
+  effect = 'scrollx';
 
   constructor(private caroselProduct:CaroselProductService){}
 
   ngOnInit(): void {
     this.subscription = this.caroselProduct.getProductList()
     .subscribe((res) => {
-      this.slides = res;
-      if (this.autoplay) {
-        this.startAutoplay();
-      }
+      this.slides = res
     });
   }
 
@@ -35,18 +31,6 @@ export class ProductCaroselComponent implements OnInit,OnDestroy{
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
-  }
-
-  startAutoplay(): void {
-    setInterval(() => {
-      this.nextSlide();
-    }, 100);
-  }
-
- 
-
-  nextSlide(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
   }
 
 }
