@@ -40,7 +40,7 @@ export class CarouslComponent implements OnInit{
   startAutoplay(): void {
     setInterval(() => {
       this.nextSlide();
-    }, 5000);
+    }, 1000);
   }
 
   prevSlide(): void {

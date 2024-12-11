@@ -14,6 +14,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeComponent } from './compoent/home/home.component';
 import { CarouslComponent } from './shared/carousl/carousl.component';
 import { NgZeroModule } from './shared/ngZeroModule';
+import { ProductCaroselComponent } from './shared/product-carosel/product-carosel.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgZeroModule } from './shared/ngZeroModule';
     TestComponent,
     HomeComponent,
     CarouslComponent,
+    ProductCaroselComponent,
   ],
   imports: [
     BrowserModule,
