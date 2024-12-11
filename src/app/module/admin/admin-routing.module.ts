@@ -9,6 +9,7 @@ import { OrdertableComponent } from './ordertable/ordertable.component';
 const routes: Routes = [
   {path:'',component:AdminComponent},
   {path:'customer',component:CustomerComponent},
+  {path:'dashboard',component:DashboardComponent},
   {path:'createProduct',component:CreateproductComponent},
   {path:'orderTable',component:OrdertableComponent}
 ];
