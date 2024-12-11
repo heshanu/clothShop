@@ -16,6 +16,9 @@
             <div>
               <button class="open-button" (click)="openNavbarContent('women')" mat-button>Women</button>
             </div>
+            <div>
+              <button class="open-button" [routerLink]="['/admin']" mat-button>Admin</button>
+            </div>
           </div>
         </div>
 
@@ -29,18 +32,20 @@
          <button *ngIf="false" mat-raised-button color="accent">LOGIN</button>
 
          <div *ngIf="true" class="relative ml-3 flex items-center">
-             <div class="flex items-center space-x-5">
-                <span class="font-bold text-lg">Ashok</span>
-                <button mat-button [matMenuTriggerFor]="profileMenu">
-                  <img class="h-5 w-5" src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651_640.png" alt="">
-                </button>
-                <mat-menu #profileMenu="matMenu">
-                  <button mat-menu-item>Orders</button>
-                  <button mat-menu-item>Profile</button>
-                  <button mat-menu-item>Logout</button>
-                </mat-menu>
-             </div>
-         </div>
+          <div class="flex items-center space-x-5">
+            <span class="font-bold text-lg">Ashok</span>
+            <button mat-button [matMenuTriggerFor]="profileMenu">
+              <img class="h-5 w-5" src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651_640.png" alt="">
+            </button>
+            <mat-menu #profileMenu="matMenu">
+              <button mat-menu-item>Orders</button>
+              <button mat-menu-item>Profile</button>
+              <button mat-menu-item>Admin</button>
+              <button mat-menu-item>Logout</button>
+            </mat-menu>
+          </div>
+        </div>
+        
 
       </div>
     </div>
