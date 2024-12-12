@@ -16,6 +16,12 @@ import { CarouslComponent } from './shared/carousl/carousl.component';
 import { NgZeroModule } from './shared/ngZeroModule';
 import { ProductCaroselComponent } from './shared/product-carosel/product-carosel.component';
 import { AdminModule } from './module/admin/admin.module';
+import { CartComponent } from './shared/cart/cart.component';
+import { CheckoutComponent } from './shared/checkout/checkout.component';
+import { OrderComponent } from './shared/order/order.component';
+import { PaymentSuccessComponent } from './shared/payment-success/payment-success.component';
+import { ProductDetailsComponent } from './shared/product-details/product-details.component';
+import { ProductsComponent } from './shared/products/products.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,12 @@ import { AdminModule } from './module/admin/admin.module';
     HomeComponent,
     CarouslComponent,
     ProductCaroselComponent,
+    CartComponent,
+    CheckoutComponent,
+    OrderComponent,
+    PaymentSuccessComponent,
+    ProductDetailsComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
