@@ -1,0 +1,43 @@
+.lg\:col-span-3 {
+    grid-column: span 3;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  
+  .justify-evenly {
+    justify-content: space-evenly;
+  }
+  
+  .m-4 {
+    margin: 1rem;
+  }
+  
+  .app-products-card {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .app-products-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+   .lg\:col-span-3 {
+      grid-column: span 2;
+    }
+  }
+  
+  @media (max-width: 480px) {
+   .lg\:col-span-3 {
+      grid-column: span 1;
+    }
+  }

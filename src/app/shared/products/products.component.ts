@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit{
     this.filterData = filtersData;
     this.singleFilterData = singleFilter;
     this.subscription=this.productService.getProducts()
-       .subscribe((res)=>this.menPants=res
+       .subscribe((res)=>this.menPants=res.slice(0,5)
        )
   }
 
@@ -34,6 +34,9 @@ export class ProductsComponent implements OnInit{
     const filterValues = queryParams[sectionId]
     ?queryParams[sectionId].split(",")
     :[];
+
+    console.log(filterValues);
+    
 
     const valueIndex = filterValues.indexOf(value);
 
