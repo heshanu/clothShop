@@ -22,6 +22,8 @@ import { OrderComponent } from './shared/order/order.component';
 import { PaymentSuccessComponent } from './shared/payment-success/payment-success.component';
 import { ProductDetailsComponent } from './shared/product-details/product-details.component';
 import { ProductsComponent } from './shared/products/products.component';
+import { ProductsCardComponent } from './shared/products-card/products-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { ProductsComponent } from './shared/products/products.component';
     PaymentSuccessComponent,
     ProductDetailsComponent,
     ProductsComponent,
+    ProductsCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { ProductsComponent } from './shared/products/products.component';
     MatModule,
     SlickCarouselModule,
     NgZeroModule,
-    AdminModule 
+    AdminModule,FormsModule,ReactiveFormsModule 
   ],
   providers: [
     provideClientHydration()
