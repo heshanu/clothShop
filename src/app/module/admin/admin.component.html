@@ -2,10 +2,16 @@
   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
     <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-submenu nzTitle="Admin" nzIcon="team">
+      <li nz-submenu nzTitle="Dashboard" nzIcon="dashboard">
         <ul>
-          <li nz-menu-item>DashBoard</li>
-          <li nz-menu-item>Team 2</li>
+          <li nz-menu-item>Overview</li>
+          <li nz-menu-item>Analytics</li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Components" nzIcon="appstore">
+        <ul>
+          <li nz-menu-item>Button</li>
+          <li nz-menu-item>Icon</li>
         </ul>
       </li>
       <li nz-menu-item>
@@ -20,14 +26,11 @@
         class="trigger"
         nz-icon
         [nzType]="isCollapsed?'menu-unfold' :'menu-fold'"
-        (click)="isCollapsed =!isCollapsed"
+        (click)="isCollapsed =!isCollapsed  "
       ></i>
     </nz-header>
     <nz-content>
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>User</nz-breadcrumb-item>
-        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
-      </nz-breadcrumb>
+      <!-- Your content here -->
     </nz-content>
   </nz-layout>
 </nz-layout>
