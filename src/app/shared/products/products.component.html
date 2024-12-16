@@ -7,8 +7,8 @@
             <div >
              <button mat-button [matMenuTriggerFor]="sortMenu">Sort</button>
              <mat-menu #sortMenu="matMenu">
-               <button mat-menu-item>Price: high-low</button>
-               <button mat-menu-item>Price: low-high</button>
+               <button mat-menu-item >Price: high-low</button>
+               <button mat-menu-item >Price: low-high</button>
              </mat-menu>
             </div>
           </div>
@@ -40,6 +40,7 @@
                                      [name]="item.id"
                                      [value]="option.value"
                                      (click)="handleMultipleSelectFilter(option.value, item.id)"
+                                     (change)="filterProductsByColor(option.value)" 
                                    >
                                      <span>{{option.label}}</span>
                                    </mat-checkbox>
@@ -72,6 +73,9 @@
                                     [name]="item.id"
                                     [value]="option.value"
                                     (click)="handleSingleSelectFilter(option.value, item.id)"
+                                    [(ngModel)]="categoryFilter"
+                                    [value]="item.value"
+                                    (onchange)="extractFilterData(option)"
                                   >
                                     <span>{{option.label}}</span>
                                   </mat-radio-button>
@@ -92,7 +96,7 @@
  
               <div class="lg:col-span-3 md:col-span-2">
                <div class="flex flex-wrap justify-evenly m-4">
-                  <ng-container *ngFor="let item of menPants">
+                  <ng-container *ngFor="let item of filteredData" (change)="findAttributes()">
                      <app-products-card [products]="item"/>
                   </ng-container>
                </div>

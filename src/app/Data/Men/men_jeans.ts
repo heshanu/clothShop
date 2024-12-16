@@ -3,7 +3,7 @@ export const menJeans = [
       "image": "https://rukminim1.flixcart.com/image/612/612/xif0q/jean/h/y/g/34-jeans-bt008-laheja-original-imagqqbsfgmdhcvn.jpeg?q=70",
       "brand": "LAHEJA",
       "title": "Men Regular Mid Rise Black Jeans",
-      "color": "black",
+      "color": "white",
       "discountedPrice": 599,
       "price": 1999,
       "discountPersent": 70 ,
