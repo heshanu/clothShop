@@ -15,6 +15,7 @@
     </div>
   </aside>
 
+<div class="split-workspace">
   <main class="main-content">
     <header class="topbar">
       <p>THURSDAY, NOVEMBER 19</p>
@@ -72,9 +73,9 @@
         <div><p class="eyebrow">PICKED FOR YOUR ROTATION</p><h2>A few things you might love</h2></div>
         <a href="#discover">View all <span>→</span></a>
       </div>
-      <div class="product-grid">
-        <article class="product-card" *ngFor="let product of products" id="favorites">
-          <div class="product-art" aria-hidden="true">
+      <div class="product-grid" id="favorites">
+        <article class="product-card" *ngFor="let product of products">
+          <div class="product-art" aria-hidden="true" (click)="changeCloth(product.url)">
             <span class="product-shape"></span>
             <button type="button" class="favorite-button" [attr.aria-label]="'Save ' + product.name">♡</button>
           </div>
@@ -84,4 +85,9 @@
       </div>
     </section>
   </main>
+
+  <aside class="viewer-pane" aria-label="3D Garment Preview">
+    <app-garment-viewer [clothName]="selectedCloth" />
+  </aside>
+</div>
 </div>

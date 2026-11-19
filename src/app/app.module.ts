@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './shared/login/login.component';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './shared/dashboard/dashboard.component';
+import { GarmentViewerComponent } from './garment-viewer/garment-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    GarmentViewerComponent
   ],
   imports: [
     BrowserModule,

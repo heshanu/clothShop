@@ -3,8 +3,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  Input,
   NgZone,
   OnDestroy,
+  OnInit,
   PLATFORM_ID,
   effect,
   inject,
@@ -17,6 +19,7 @@ import { TitleCasePipe, isPlatformBrowser } from '@angular/common';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { log } from 'console';
 
 export type FabricPreset = 'cotton' | 'silk' | 'polyester';
 
@@ -48,8 +51,11 @@ const SWATCH_COLORS: readonly { label: string; hex: string }[] = [
   styleUrl: './garment-viewer.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GarmentViewerComponent implements AfterViewInit, OnDestroy {
-  readonly modelUrl = input<string>('/t_shirt.glb');
+export class GarmentViewerComponent implements AfterViewInit, OnDestroy,OnInit {
+  modelUrl = input<string>('');
+
+ @Input() clothName: any;
+
   private readonly canvasRef = viewChild.required<ElementRef<HTMLCanvasElement>>('viewportCanvas');
 
   private readonly ngZone = inject(NgZone);
@@ -75,6 +81,10 @@ export class GarmentViewerComponent implements AfterViewInit, OnDestroy {
 
   private fittedCamPos = new THREE.Vector3(0, 1.2, 2.8);
   private fittedTarget = new THREE.Vector3(0, 1.0, 0);
+
+  ngOnInit(): void {
+    this.modelUrl=this.clothName;
+  }
 
   constructor() {
     effect(() => {
@@ -102,6 +112,7 @@ export class GarmentViewerComponent implements AfterViewInit, OnDestroy {
       });
     });
   }
+  
 
   ngAfterViewInit(): void {
     if (!this.isBrowser) {
@@ -354,4 +365,5 @@ export class GarmentViewerComponent implements AfterViewInit, OnDestroy {
       }
     });
   }
+
 }

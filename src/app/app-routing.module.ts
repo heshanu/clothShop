@@ -7,7 +7,7 @@ import { GarmentViewerComponent } from './garment-viewer/garment-viewer.componen
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'garment-viewer',component:GarmentViewerComponent },
+  //{ path: 'garment-viewer',component:GarmentViewerComponent },
   { path: '**', redirectTo: '' }
 ];
 
