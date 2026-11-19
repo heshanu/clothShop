@@ -1,0 +1,87 @@
+<div class="dashboard">
+  <aside class="sidebar">
+    <a class="brand" routerLink="/">cloth<span>.</span></a>
+    <p class="nav-caption">YOUR SPACE</p>
+    <nav aria-label="Main navigation">
+      <a class="nav-link active" routerLink="/dashboard"><span>⌂</span> Overview</a>
+      <a class="nav-link" href="#orders"><span>▤</span> My orders <b>1</b></a>
+      <a class="nav-link" href="#favorites"><span>♡</span> Favorites</a>
+      <a class="nav-link" href="#discover"><span>◷</span> Recently viewed</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="avatar">J</div>
+      <div class="account-name"><strong>Jamie Parker</strong><small>Style member</small></div>
+      <a class="logout" routerLink="/" aria-label="Sign out">↗</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <p>THURSDAY, NOVEMBER 19</p>
+      <div class="top-actions">
+        <button type="button" class="icon-button" aria-label="Search">⌕</button>
+        <button type="button" class="cart-button" aria-label="Shopping bag">Bag <span>0</span></button>
+      </div>
+    </header>
+
+    <div class="preview-note" role="note">
+      Dashboard preview — sign-in and live account data are not connected yet.
+    </div>
+
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR CLOTH EDIT</p>
+        <h1>Good morning, Jamie<span>.</span></h1>
+        <p class="welcome-copy">A fresh day calls for a fresh point of view.</p>
+      </div>
+      <a class="shop-button" href="#discover">Explore the collection <span>→</span></a>
+    </section>
+
+    <section class="quick-stats" aria-label="Account overview">
+      <article class="stat-card">
+        <span class="stat-icon">▤</span>
+        <div><p>ORDERS IN MOTION</p><strong>1</strong><small>Your latest pick is on its way</small></div>
+        <a href="#orders" aria-label="View order">↗</a>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon">♡</span>
+        <div><p>ON YOUR WISHLIST</p><strong>4</strong><small>Good taste. We saved them.</small></div>
+        <a href="#favorites" aria-label="View favorites">↗</a>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon">✳</span>
+        <div><p>YOUR CLOTH POINTS</p><strong>240</strong><small>160 points until your next reward</small></div>
+        <a href="#rewards" aria-label="View rewards">↗</a>
+      </article>
+    </section>
+
+    <section id="orders" class="order-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE GOOD STUFF IS COMING</p><h2>On its way to you</h2></div>
+        <a href="#orders">Order details <span>→</span></a>
+      </div>
+      <article class="order-card">
+        <div class="order-art" aria-hidden="true"><span>✳</span></div>
+        <div class="order-info"><p>ORDER #CL-20481 <span class="order-status">IN TRANSIT</span></p><h3>The Sunday Set</h3><small>Placed November 16 · 2 items</small></div>
+        <div class="delivery"><small>ESTIMATED DELIVERY</small><strong>Nov 21 – 23</strong><a href="#orders">Track package →</a></div>
+      </article>
+    </section>
+
+    <section id="discover" class="discover-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">PICKED FOR YOUR ROTATION</p><h2>A few things you might love</h2></div>
+        <a href="#discover">View all <span>→</span></a>
+      </div>
+      <div class="product-grid">
+        <article class="product-card" *ngFor="let product of products" id="favorites">
+          <div class="product-art" aria-hidden="true">
+            <span class="product-shape"></span>
+            <button type="button" class="favorite-button" [attr.aria-label]="'Save ' + product.name">♡</button>
+          </div>
+          <p class="product-category">{{ product.category }}</p>
+          <div class="product-title"><h3>{{ product.name }}</h3><span>{{ product.price }}</span></div>
+        </article>
+      </div>
+    </section>
+  </main>
+</div>

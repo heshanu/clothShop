@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,8 @@ export class LoginComponent {
   password = '';
   rememberMe = false;
   showPassword = false;
-  message = '';
+
+  constructor(private readonly router: Router) {}
 
   onSubmit(form: NgForm): void {
     if (form.invalid) {
@@ -19,6 +22,6 @@ export class LoginComponent {
       return;
     }
 
-    this.message = 'Sign-in is not connected yet. Your details have not been sent.';
+    void this.router.navigateByUrl('/dashboard');
   }
 }

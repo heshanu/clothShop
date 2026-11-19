@@ -1,0 +1,278 @@
+:host {
+  display: block;
+  width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.garment-viewer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+  width: 100%;
+  min-height: 460px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+  box-shadow: 0 20px 50px -15px rgba(15, 23, 42, 0.16);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.viewer-stage {
+  position: relative;
+  width: 100%;
+  height: clamp(340px, 58vh, 640px);
+  overflow: hidden;
+}
+
+.viewer-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.viewer-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #334155;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+.overlay-card {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1.25rem;
+  border-radius: 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+.error-card {
+  color: #991b1b;
+  background: rgba(254, 242, 242, 0.95);
+  border: 1px solid #fecaca;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #cbd5e1;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.15rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(203, 213, 225, 0.6);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.active-fabric-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  background: #dbeafe;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+}
+
+.control-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.block-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.block-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.hex-readout {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.swatch-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(15, 23, 42, 0.14);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.swatch-btn:hover {
+  transform: scale(1.08);
+}
+
+.swatch-btn.selected {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #2563eb;
+}
+
+.picker-trigger {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #f1f5f9;
+  border: 1px dashed #94a3b8;
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.color-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.segmented-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+  padding: 0.25rem;
+  border-radius: 12px;
+  background: #f1f5f9;
+}
+
+.segment-btn {
+  border: none;
+  border-radius: 9px;
+  padding: 0.48rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.segment-btn:hover {
+  color: #0f172a;
+}
+
+.segment-btn.active {
+  color: #ffffff;
+  background: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+}
+
+.reset-btn {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border-radius: 11px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.reset-btn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* Desktop floating HUD layout */
+@media (min-width: 860px) {
+  .garment-viewer {
+    display: block;
+    min-height: 540px;
+  }
+
+  .viewer-stage {
+    width: 100%;
+    height: clamp(540px, 76vh, 820px);
+  }
+
+  .control-panel {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 280px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.2);
+  }
+}

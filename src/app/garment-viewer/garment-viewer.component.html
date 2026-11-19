@@ -1,0 +1,83 @@
+<section class="garment-viewer" aria-label="Interactive 3D Garment Viewer">
+  <div class="viewer-stage">
+    <canvas #viewportCanvas class="viewer-canvas"></canvas>
+
+    <div class="viewer-badge">
+      <span class="dot"></span>
+      <span>Drag to orbit · Scroll to zoom</span>
+    </div>
+
+    @if (isLoading()) {
+      <div class="overlay-card" role="status" aria-live="polite">
+        <span class="spinner" aria-hidden="true"></span>
+        <span>Loading 3D garment…</span>
+      </div>
+    }
+
+    @if (errorMessage(); as error) {
+      <div class="overlay-card error-card" role="alert">
+        <span>{{ error }}</span>
+      </div>
+    }
+  </div>
+
+  <aside class="control-panel" aria-label="Garment Appearance Controls">
+    <div class="panel-header">
+      <h2 class="panel-title">Customize Garment</h2>
+      <span class="active-fabric-pill">{{ selectedFabric()}}</span>
+    </div>
+
+    <div class="control-block">
+      <div class="block-top">
+        <label for="garmentColor" class="block-label">Color</label>
+        <span class="hex-readout">{{ selectedColor().toUpperCase() }}</span>
+      </div>
+
+      <div class="swatch-row">
+        @for (swatch of swatches; track swatch.hex) {
+          <button
+            type="button"
+            class="swatch-btn"
+            [class.selected]="selectedColor().toLowerCase() === swatch.hex.toLowerCase()"
+            [style.backgroundColor]="swatch.hex"
+            [attr.aria-label]="'Select ' + swatch.label"
+            [attr.title]="swatch.label"
+            (click)="selectSwatch(swatch.hex)"
+          ></button>
+        }
+
+        <label class="picker-trigger" title="Custom color">
+          <input
+            id="garmentColor"
+            type="color"
+            class="color-input"
+            [value]="selectedColor()"
+            (input)="onColorChange($event)"
+          />
+          <span>+</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-block">
+      <span class="block-label">Fabric Weave</span>
+      <div class="segmented-group" role="group" aria-label="Fabric type">
+        @for (fabric of presets; track fabric) {
+          <button
+            type="button"
+            class="segment-btn"
+            [class.active]="selectedFabric() === fabric"
+            [attr.aria-pressed]="selectedFabric() === fabric"
+            (click)="onFabricChange(fabric)"
+          >
+            {{ fabric }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <button type="button" class="reset-btn" (click)="resetCamera()">
+      Reset View
+    </button>
+  </aside>
+</section>
